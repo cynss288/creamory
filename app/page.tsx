@@ -91,10 +91,14 @@ export default function Home() {
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">無限可能性，打造獨一無二的蛋糕體驗</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <OptionCard
               title="蛋糕口味"
               options={["香草", "巧克力", "紅絲絨", "檸檬", "抹茶", "焦糖", "咖啡", "藍莓"]}
+            />
+            <OptionCard
+              title="填充與覆蓋"
+              options={["奶油霜", "鮮奶油", "起司奶油", "巧克力甘納許", "水果夾層", "果醬", "焦糖"]}
             />
             <OptionCard
               title="裝飾選項"
