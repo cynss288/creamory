@@ -1,10 +1,12 @@
 "use client"
 
-import Link from "next/link"
 import { useState, useEffect } from "react"
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,41 +19,84 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-white/95"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"}`}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex justify-between items-center py-4">
-          <Link href="/" className="text-2xl font-bold text-[#e77c7c]">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          <Link href="/" className={`text-2xl font-bold ${isScrolled || isMenuOpen ? "text-rose-400" : "text-white"}`}>
             Creamory
           </Link>
 
-          <nav>
-            <ul className="flex space-x-6 md:space-x-8">
-              <li>
-                <Link href="#about" className="font-medium text-[#4a3e3e] hover:text-[#e77c7c] transition-colors">
-                  關於我們
-                </Link>
-              </li>
-              <li>
-                <Link href="#courses" className="font-medium text-[#4a3e3e] hover:text-[#e77c7c] transition-colors">
-                  課程介紹
-                </Link>
-              </li>
-              <li>
-                <Link href="#schedule" className="font-medium text-[#4a3e3e] hover:text-[#e77c7c] transition-colors">
-                  課程時間
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="font-medium text-[#4a3e3e] hover:text-[#e77c7c] transition-colors">
-                  聯絡我們
-                </Link>
-              </li>
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMenuOpen ? (
+              <X className={`h-6 w-6 ${isScrolled ? "text-gray-800" : "text-white"}`} />
+            ) : (
+              <Menu className={`h-6 w-6 ${isScrolled ? "text-gray-800" : "text-white"}`} />
+            )}
+          </button>
+
+          {/* Desktop navigation */}
+          <nav className="hidden md:block">
+            <ul className="flex space-x-8">
+              {["home", "features", "cakes", "how-it-works", "customize", "contact"].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`#${item}`}
+                    className={`font-medium hover:text-rose-400 transition-colors ${
+                      isScrolled ? "text-gray-800" : "text-white"
+                    }`}
+                  >
+                    {item === "home"
+                      ? "首頁"
+                      : item === "features"
+                        ? "特色"
+                        : item === "cakes"
+                          ? "蛋糕款式"
+                          : item === "how-it-works"
+                            ? "訂購流程"
+                            : item === "customize"
+                              ? "客製選項"
+                              : "聯絡我們"}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
+
+        {/* Mobile navigation */}
+        {isMenuOpen && (
+          <nav className="md:hidden mt-4 pb-4">
+            <ul className="flex flex-col space-y-4">
+              {["home", "features", "cakes", "how-it-works", "customize", "contact"].map((item) => (
+                <li key={item}>
+                  <Link
+                    href={`#${item}`}
+                    className="block font-medium text-gray-800 hover:text-rose-400 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item === "home"
+                      ? "首頁"
+                      : item === "features"
+                        ? "特色"
+                        : item === "cakes"
+                          ? "蛋糕款式"
+                          : item === "how-it-works"
+                            ? "訂購流程"
+                            : item === "customize"
+                              ? "客製選項"
+                              : "聯絡我們"}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </div>
     </header>
   )

@@ -3,12 +3,13 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Creamory - 兒童烘焙體驗課程",
-  description: "為兒童提供有趣的烘焙體驗課程",
+  title: "Creamory - 客製化蛋糕專門店",
+  description: "專業客製化蛋糕工作室，為您的特別時刻創造甜蜜回憶",
     generator: 'v0.dev'
 }
 
@@ -18,10 +19,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="zh-TW">
-      <body className={`${inter.className} bg-[#fff9f9] text-[#4a3e3e]`}>
+    <html lang="zh-TW" className="scroll-smooth">
+      <body className={inter.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )

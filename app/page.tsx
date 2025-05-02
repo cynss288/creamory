@@ -1,234 +1,169 @@
-import { Button } from "@/components/ui/button"
-import Hero from "@/components/hero"
+import { Card, CardContent } from "@/components/ui/card"
+import ContactForm from "@/components/contact-form"
+import CakeGallery from "@/components/cake-gallery"
+import HeroBanner from "@/components/hero-banner"
+import FaqSection from "@/components/faq-section"
 
 export default function Home() {
   return (
-    <main className="pt-16">
-      <Hero />
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section id="home">
+        <HeroBanner />
+      </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">關於 Creamory</h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-lg mb-6">
-                Creamory 是專為兒童設計的烘焙體驗課程，我們相信透過烘焙，孩子們可以學習耐心、創意思考和團隊合作。
-              </p>
-              <p className="text-lg mb-6">
-                我們的課程由專業烘焙師傅帶領，使用安全、優質的食材，讓孩子們在愉快的氛圍中學習烘焙技巧。
-              </p>
-              <p className="text-lg">
-                每個孩子都能在 Creamory 發揮創意，製作出獨一無二的甜點作品，並帶著成就感和美好回憶回家。
-              </p>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <img src="/placeholder.svg?height=600&width=800" alt="兒童烘焙課程" className="w-full h-auto" />
-            </div>
+      {/* Features Section */}
+      <section id="features" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-rose-400 mb-4">為什麼選擇 Creamory？</h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">我們不只是製作蛋糕，更是在創造美好回憶</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <FeatureCard
+              icon="🎂"
+              title="完全客製化"
+              description="從口味、造型到裝飾，每一個細節都可依照您的需求和想像進行量身訂製。"
+            />
+            <FeatureCard
+              icon="🌿"
+              title="優質食材"
+              description="使用有機雞蛋、進口奶油和頂級巧克力等高品質食材，絕不添加人工色素和防腐劑。"
+            />
+            <FeatureCard
+              icon="👨‍🍳"
+              title="專業團隊"
+              description="由經驗豐富的糕點師傅手工製作，確保每一款蛋糕都達到完美品質與口感。"
+            />
+            <FeatureCard
+              icon="🚚"
+              title="專業配送"
+              description="採用專業保鮮配送，確保蛋糕在最佳狀態送達，新鮮度與美觀度不打折。"
+            />
           </div>
         </div>
       </section>
 
-      {/* Courses Section */}
-      <section id="courses" className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">課程介紹</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Course Card 1 */}
-            <div className="bg-[#fff9f9] rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105">
-              <img
-                src="/placeholder.svg?height=300&width=500"
-                alt="蛋糕裝飾課程"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-[#e77c7c]">蛋糕裝飾課程</h3>
-                <p className="mb-4">學習基本的蛋糕裝飾技巧，包括奶油霜製作、擠花和簡單的造型設計。</p>
-                <p className="text-sm text-gray-600">適合年齡：6-12歲</p>
-                <p className="text-sm text-gray-600">課程時長：2小時</p>
-              </div>
-            </div>
+      {/* Cakes Section */}
+      <section id="cakes" className="py-0">
+        <CakeGallery />
+      </section>
 
-            {/* Course Card 2 */}
-            <div className="bg-[#fff9f9] rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105">
-              <img
-                src="/placeholder.svg?height=300&width=500"
-                alt="餅乾製作課程"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-[#e77c7c]">餅乾製作課程</h3>
-                <p className="mb-4">從麵團製作到烘烤，學習製作各種造型的餅乾，並進行創意裝飾。</p>
-                <p className="text-sm text-gray-600">適合年齡：5-12歲</p>
-                <p className="text-sm text-gray-600">課程時長：2.5小時</p>
-              </div>
-            </div>
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-rose-400 mb-4">訂購流程</h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">簡單四步驟，打造您的專屬蛋糕</p>
+          </div>
 
-            {/* Course Card 3 */}
-            <div className="bg-[#fff9f9] rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105">
-              <img
-                src="/placeholder.svg?height=300&width=500"
-                alt="巧克力工藝課程"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-[#e77c7c]">巧克力工藝課程</h3>
-                <p className="mb-4">探索巧克力的奧秘，學習溫度控制、模具使用和創意巧克力製作。</p>
-                <p className="text-sm text-gray-600">適合年齡：7-12歲</p>
-                <p className="text-sm text-gray-600">課程時長：3小時</p>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <StepCard
+              number="1"
+              title="填寫訂單表格"
+              description="選擇基本蛋糕款式、大小、口味和預計取貨日期，告訴我們您的特殊需求。"
+            />
+            <StepCard
+              number="2"
+              title="確認設計與報價"
+              description="我們會根據您的需求提供設計草圖和報價，與您討論並確認細節。"
+            />
+            <StepCard
+              number="3"
+              title="付款預訂"
+              description="確認設計後，支付50%訂金以確保您的訂單，剩餘款項可於取貨時支付。"
+            />
+            <StepCard
+              number="4"
+              title="取貨或配送"
+              description="您可選擇親自到店取貨，或我們可安排專業配送服務送達指定地點。"
+            />
           </div>
         </div>
       </section>
 
-      {/* Schedule Section */}
-      <section id="schedule" className="py-20">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">課程時間表</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full bg-white rounded-lg overflow-hidden shadow-lg">
-              <thead className="bg-[#e77c7c] text-white">
-                <tr>
-                  <th className="py-4 px-6 text-left">課程</th>
-                  <th className="py-4 px-6 text-left">日期</th>
-                  <th className="py-4 px-6 text-left">時間</th>
-                  <th className="py-4 px-6 text-left">名額</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-gray-200 hover:bg-gray-50">
-                  <td className="py-4 px-6">蛋糕裝飾課程</td>
-                  <td className="py-4 px-6">每週六</td>
-                  <td className="py-4 px-6">10:00 - 12:00</td>
-                  <td className="py-4 px-6">10人</td>
-                </tr>
-                <tr className="border-b border-gray-200 hover:bg-gray-50">
-                  <td className="py-4 px-6">餅乾製作課程</td>
-                  <td className="py-4 px-6">每週日</td>
-                  <td className="py-4 px-6">14:00 - 16:30</td>
-                  <td className="py-4 px-6">12人</td>
-                </tr>
-                <tr className="border-b border-gray-200 hover:bg-gray-50">
-                  <td className="py-4 px-6">巧克力工藝課程</td>
-                  <td className="py-4 px-6">每週六</td>
-                  <td className="py-4 px-6">14:00 - 17:00</td>
-                  <td className="py-4 px-6">8人</td>
-                </tr>
-              </tbody>
-            </table>
+      {/* Customize Section */}
+      <section id="customize" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-rose-400 mb-4">客製化選項</h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">無限可能性，打造獨一無二的蛋糕體驗</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <OptionCard
+              title="蛋糕口味"
+              options={["香草", "巧克力", "紅絲絨", "檸檬", "抹茶", "焦糖", "咖啡", "藍莓"]}
+            />
+            <OptionCard
+              title="裝飾選項"
+              options={["水果裝飾", "花朵設計", "巧克力裝飾", "馬卡龍", "翻糖造型", "金箔", "照片打印", "特殊主題設計"]}
+            />
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">聯絡我們</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">預約課程</h3>
-              <p className="mb-6">填寫以下表格預約課程，或透過電話與我們聯繫。我們將在24小時內回覆您。</p>
-              <div className="space-y-4">
-                <p className="flex items-center">
-                  <span className="font-bold mr-2">地址：</span>
-                  台北市信義區松仁路100號
-                </p>
-                <p className="flex items-center">
-                  <span className="font-bold mr-2">電話：</span>
-                  02-1234-5678
-                </p>
-                <p className="flex items-center">
-                  <span className="font-bold mr-2">Email：</span>
-                  info@creamory.com
-                </p>
-              </div>
-            </div>
-            <form className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block mb-2 font-medium">
-                  姓名
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e77c7c]"
-                  placeholder="請輸入您的姓名"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block mb-2 font-medium">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e77c7c]"
-                  placeholder="請輸入您的Email"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block mb-2 font-medium">
-                  電話
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e77c7c]"
-                  placeholder="請輸入您的電話"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block mb-2 font-medium">
-                  訊息
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#e77c7c]"
-                  placeholder="請輸入您的訊息"
-                ></textarea>
-              </div>
-              <Button className="bg-[#e77c7c] hover:bg-[#d66c6c] text-white px-6 py-2 rounded-md">送出</Button>
-            </form>
+      <section id="contact" className="py-20 bg-rose-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-rose-400 mb-4">立即訂製</h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">填寫表格，我們將在24小時內回覆您</p>
+          </div>
+
+          <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <ContactForm />
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#4a3e3e] text-white py-10">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Creamory</h3>
-              <p>為兒童提供有趣、安全、創意的烘焙體驗課程，讓每個孩子都能享受烘焙的樂趣。</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">營業時間</h3>
-              <p>週二至週五：13:00 - 19:00</p>
-              <p>週六至週日：10:00 - 19:00</p>
-              <p>週一：休息</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">追蹤我們</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="hover:text-[#e77c7c]">
-                  Facebook
-                </a>
-                <a href="#" className="hover:text-[#e77c7c]">
-                  Instagram
-                </a>
-                <a href="#" className="hover:text-[#e77c7c]">
-                  YouTube
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-            <p>&copy; {new Date().getFullYear()} Creamory. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      {/* FAQ Section */}
+      <FaqSection />
     </main>
+  )
+}
+
+// Component for feature cards
+function FeatureCard({ icon, title, description }: { icon: string; title: string; description: string }) {
+  return (
+    <Card className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-transform hover:-translate-y-2">
+      <CardContent className="p-0 text-center">
+        <div className="text-4xl mb-4">{icon}</div>
+        <h3 className="text-xl font-semibold mb-3">{title}</h3>
+        <p className="text-gray-600">{description}</p>
+      </CardContent>
+    </Card>
+  )
+}
+
+// Component for step cards
+function StepCard({ number, title, description }: { number: string; title: string; description: string }) {
+  return (
+    <div className="text-center p-6">
+      <div className="w-16 h-16 bg-rose-400 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+        {number}
+      </div>
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <p className="text-gray-600">{description}</p>
+    </div>
+  )
+}
+
+// Component for option cards
+function OptionCard({ title, options }: { title: string; options: string[] }) {
+  return (
+    <Card className="bg-white p-6 rounded-lg shadow-md">
+      <CardContent className="p-0 text-center">
+        <h3 className="text-xl font-semibold text-rose-400 mb-6">{title}</h3>
+        <div className="flex flex-wrap justify-center gap-2">
+          {options.map((option, index) => (
+            <span key={index} className="bg-rose-100 px-3 py-1 rounded-full text-sm">
+              {option}
+            </span>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   )
 }

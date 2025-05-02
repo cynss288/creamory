@@ -53,13 +53,13 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        cream: {
-          light: "#fff9f9",
-          DEFAULT: "#e77c7c",
-          dark: "#d66c6c",
-        },
-        text: {
-          DEFAULT: "#4a3e3e",
+        rose: {
+          50: "#fff1f2",
+          100: "#ffe4e6",
+          200: "#fecdd3",
+          300: "#fda4af",
+          400: "#fb7185",
+          500: "#f43f5e",
         },
       },
       borderRadius: {
